@@ -8,7 +8,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.latest/css/all.min.css">
     <!-- Configure Tailwind to use Inter font and define custom colors -->
     <script>
         tailwind.config = {
@@ -40,7 +40,54 @@
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             padding-top: 64px; /* Space for fixed navigation bar */
+            /* Ensure content sits above the animated background */
+            position: relative; 
+            z-index: 1;
         }
+
+        /* --- ANIMATED BACKGROUND STYLES START --- */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10; /* Put behind all content */
+            overflow: hidden;
+            background: #0d0d0d;
+        }
+
+        .animated-shape {
+            position: absolute;
+            background-color: rgba(0, 176, 230, 0.08); /* Faint neon glow */
+            border-radius: 50%; /* Circles */
+            filter: blur(20px);
+            animation: pulse-move 10s infinite ease-in-out alternate;
+        }
+
+        @keyframes pulse-move {
+            0% { 
+                transform: scale(0.9) translate(0, 0); 
+                opacity: 0.1;
+            }
+            50% { 
+                transform: scale(1.05) translate(10px, -10px); 
+                opacity: 0.15;
+            }
+            100% { 
+                transform: scale(0.9) translate(-5px, 5px); 
+                opacity: 0.1;
+            }
+        }
+
+        /* Positioning the shapes */
+        .shape-1 { width: 150px; height: 150px; top: 10%; left: 5%; animation-delay: 0s; }
+        .shape-2 { width: 200px; height: 200px; top: 70%; left: 80%; animation-delay: 2s; }
+        .shape-3 { width: 100px; height: 100px; top: 40%; left: 40%; animation-delay: 4s; }
+        .shape-4 { width: 250px; height: 250px; top: -10%; right: 20%; animation-delay: 6s; }
+        .shape-5 { width: 120px; height: 120px; bottom: 5%; left: 30%; animation-delay: 1s; }
+        .shape-6 { width: 180px; height: 180px; bottom: 20%; right: 10%; animation-delay: 3s; }
+        /* --- ANIMATED BACKGROUND STYLES END --- */
 
         /* Neon separator effect for lists */
         .list-item::before {
@@ -78,6 +125,17 @@
 </head>
 <body class="antialiased">
 
+    <!-- ANIMATED BACKGROUND LAYER -->
+    <div class="animated-bg">
+        <div class="animated-shape shape-1"></div>
+        <div class="animated-shape shape-2"></div>
+        <div class="animated-shape shape-3"></div>
+        <div class="animated-shape shape-4"></div>
+        <div class="animated-shape shape-5"></div>
+        <div class="animated-shape shape-6"></div>
+    </div>
+    <!-- END ANIMATED BACKGROUND LAYER -->
+
     <!-- 1. Fixed Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full bg-bg-dark bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,11 +172,10 @@
     </nav>
 
     <!-- Main Content Wrapper -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         <!-- 2. Hero Section -->
         <section id="hero" class="section-anchor pt-20 pb-12 flex flex-col items-center text-center">
-            <!-- Removed Profile Image/Avatar Placeholder as requested -->
             <h1 class="text-5xl font-extrabold tracking-tight mb-2 pt-8">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-neon to-white">Pranali Dhawde</span>
             </h1>
