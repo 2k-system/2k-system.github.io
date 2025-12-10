@@ -15,7 +15,7 @@
         */
 
         /* =============================
-           ANIMATED BACKGROUND
+           ANIMATED BACKGROUND (Confirmed)
            ============================= */
         @keyframes gradient-animation {
             0% {
@@ -54,7 +54,7 @@
         }
 
         .highlight {
-            color: #00e6e6; /* Teal highlight */
+            color: #00e6e6; /* Teal highlight (used for 'About' and main titles) */
         }
 
         .subtitle {
@@ -100,8 +100,31 @@
             padding: 32px;
             border-radius: 12px;
             margin-bottom: 40px;
+            /* Default borders for Skills/Projects */
             border: 2px solid #00e6e6;
             box-shadow: 0 0 15px #00e6e6;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        /* =============================
+           ABOUT ME OVERRIDES (Dynamic Border)
+           ============================= */
+        #about.neon-section {
+            /* Initial State: Remove default teal border/shadow */
+            border: none;
+            box-shadow: none;
+            /* Initial State: Apply only bold left red border (matching education theme) */
+            border-left: 6px solid #ff4d4d;
+        }
+
+        #about.neon-section:hover {
+            /* Hover State: Change color to neon blue/teal */
+            background-color: #1a1a1a;
+            /* Hover State: All borders appear (neon blue/teal) */
+            border: 2px solid #00ffff; 
+            /* Hover State: Apply neon blue/teal glow */
+            box-shadow: 0 0 25px #00ffff;
+            transform: translateY(-5px); /* Lift effect */
         }
 
 
@@ -109,51 +132,43 @@
            EDUCATION STYLING (MODIFIED)
            ============================= */
         .timeline {
-            /* Now just a container for the boxes */
             margin: 20px 0;
         }
 
-        /* Removed Red vertical line */
         .timeline::before {
             content: none;
         }
 
-        /* Each item container - now ensures separation */
         .timeline-item {
-            /* Controls the vertical spacing between boxes */
             display: block; 
-            margin: 0 0 35px 0; /* Add bottom margin for separation */
+            margin: 0 0 35px 0;
             position: relative;
         }
 
-        /* Removed Icons styling (display: none is set on the class to hide them if accidentally added) */
         .timeline-icon {
             display: none;
         }
 
-        /* Content box: Implements "box around" and "neon red colour left padding" */
         .timeline-content {
             background: #111;
-            /* Increased left padding from 20px to 40px */
             padding: 20px 20px 20px 40px;
-            /* Removed margin-left: 60px; used to clear the icon */
             margin-left: 0;
-            border-radius: 12px; /* Rounded corners */
+            border-radius: 12px;
             border: 2px solid red;
             box-shadow: 0 0 15px red;
             width: 100%; 
-            transition: all 0.4s ease-in-out; /* Added transition */
+            transition: all 0.4s ease-in-out;
         }
 
         .timeline-content:hover {
             background-color: #1a1a1a;
-            border-color: #ff4d4d; /* Maintain red theme */
-            box-shadow: 0 0 25px rgba(255, 77, 77, 0.8); /* Stronger red glow on hover */
-            transform: translateY(-5px); /* Lift effect */
+            border-color: #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
+            transform: translateY(-5px);
         }
         
         .timeline-content h3 {
-            color: #ff4d4d; /* Red title */
+            color: #ff4d4d;
         }
         
         /* =============================
@@ -161,11 +176,10 @@
            ============================= */
         .skills-grid {
             display: grid;
-            /* Ensure 2 columns on medium and large screens, but 1 column on small screens */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        @media (min-width: 640px) { /* sm breakpoint or higher in Tailwind */
+        @media (min-width: 640px) {
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -175,26 +189,26 @@
             background: #111;
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #333; /* subtle initial border */
+            border: 1px solid #333;
             transition: all 0.4s ease-in-out;
-            height: 100%; /* Ensure boxes fill vertical space */
+            height: 100%;
         }
 
         .skill-category-box h3 {
-            color: #00e6e6; /* Teal for category title */
+            color: #00e6e6;
             font-weight: 700;
             margin-bottom: 15px;
             border-bottom: 1px dashed #333;
             padding-bottom: 5px;
-            transition: color 0.4s ease-in-out; /* Add transition for title color */
+            transition: color 0.4s ease-in-out;
         }
 
         .skill-category-box ul {
             list-style: none;
             padding: 0;
-            display: flex; /* Keeps the list items horizontal/inline */
+            display: flex;
             flex-wrap: wrap;
-            gap: 10px; /* Increased gap for better separation */
+            gap: 10px;
         }
 
         .skill-category-box li {
@@ -204,7 +218,6 @@
             border-radius: 4px;
             font-size: 0.9em;
             transition: background-color 0.2s;
-            /* Applying BOLD left border as requested */
             border-left: 4px solid #00e6e6;
             border-top: 1px solid #2a2a2a;
             border-right: 1px solid #2a2a2a;
@@ -212,15 +225,14 @@
         }
 
         .skill-category-box:hover {
-            /* Enhanced hover effect for better visual feedback */
             background-color: #1a1a1a; 
-            border-color: #00ffff; /* Brighter teal hover border */
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Stronger Teal glow on hover */
-            transform: translateY(-5px); /* Lift effect */
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            transform: translateY(-5px);
         }
 
         .skill-category-box:hover h3 {
-            color: #00ffff; /* Brighten title on hover */
+            color: #00ffff;
         }
 
         /* =============================
@@ -242,11 +254,10 @@
             padding: 20px;
             border-radius: 8px;
             transition: 0.3s;
-            /* Ensure initial border/shadow is there before the permanent neon border */
         }
 
         .project-box:hover {
-            background-color: #1a1a1a; /* Darken slightly on hover */
+            background-color: #1a1a1a;
             transform: translateY(-5px);
             box-shadow: 0 0 25px #00e6e6;
         }
@@ -267,7 +278,7 @@
         }
 
         .animated-link:hover {
-            color: #ff00ff; /* Pink hover effect */
+            color: #ff00ff;
             transform: scale(1.05);
             text-shadow: 0 0 15px #ff00ff;
         }
@@ -304,7 +315,8 @@
 
         <!-- ===== ABOUT ===== -->
         <section id="about" class="neon-section">
-            <h2 class="text-4xl font-bold mb-6 glow">About Me</h2>
+            <!-- Updated H2 to split the color: 'About' is teal, 'Me' is white (default text color) -->
+            <h2 class="text-4xl font-bold mb-6 glow"><span class="highlight">About</span> Me</h2>
             <p class="text-lg leading-relaxed mb-4">
                 I am a dedicated Data Analyst specializing in Big Data Analytics with a strong foundation in Statistics. With a Master's degree in Big Data Analytics and a post-graduate diploma from C-DAC, coupled with over a year of professional experience, I excel at turning raw data into strategic business decisions.
             </p>
@@ -323,8 +335,8 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3 class="text-xl font-semibold mb-1">Post Graduate Diploma in Big Data Analytics</h3>
-                        <p class="text-md text-gray-400"><strong>Centre of Development of Advanced Computing (C-DAC), Kharghar</strong></p>
-                        <p class="text-sm text-gray-500">Feb 2025 – Aug 2025 | First Class</p>
+                        <p class="text-md text-gray-400"><strong>Centre of Development of Advanced Computing (C-DAC), Pune</strong></p>
+                        <p class="text-sm text-gray-500">Aug 2024 – Feb 2025 | First Class</p>
                     </div>
                 </div>
 
