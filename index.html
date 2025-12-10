@@ -142,8 +142,16 @@
             border: 2px solid red;
             box-shadow: 0 0 15px red;
             width: 100%; 
+            transition: all 0.4s ease-in-out; /* Added transition */
         }
 
+        .timeline-content:hover {
+            background-color: #1a1a1a;
+            border-color: #ff4d4d; /* Maintain red theme */
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.8); /* Stronger red glow on hover */
+            transform: translateY(-5px); /* Lift effect */
+        }
+        
         .timeline-content h3 {
             color: #ff4d4d; /* Red title */
         }
@@ -234,9 +242,11 @@
             padding: 20px;
             border-radius: 8px;
             transition: 0.3s;
+            /* Ensure initial border/shadow is there before the permanent neon border */
         }
 
         .project-box:hover {
+            background-color: #1a1a1a; /* Darken slightly on hover */
             transform: translateY(-5px);
             box-shadow: 0 0 25px #00e6e6;
         }
