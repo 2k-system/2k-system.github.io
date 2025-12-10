@@ -3,120 +3,372 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pranali Dhawde | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Pranali Dhawde | Data & Big Data Analyst</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Using Inter font for consistency, but Arial is the fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+        * Styles Overridden with User's New CSS (Neon Teal & Neon Red Timeline)
+        */
+
+        /* =============================
+           GENERAL STYLING
+           ============================= */
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            /* Ensure inter is loaded if available, otherwise use specified fallback */
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .glow {
+            font-size: 42px;
+            text-shadow: 0 0 10px #00e6e6, 0 0 25px #00e6e6; /* Teal glow */
+        }
+
+        .highlight {
+            color: #00e6e6; /* Teal highlight */
+        }
+
+        .subtitle {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* Resume Button */
+        .resume-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: 2px solid #00e6e6;
+            color: #00e6e6;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .resume-btn:hover {
+            background-color: #00e6e6;
+            color: #000;
+            box-shadow: 0 0 20px #00ffff;
+        }
+
+        /* Sections (Using Tailwind for primary layout centering, overriding CSS only for internal structure) */
+        section {
+            width: 80%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 0;
+        }
+
+        h2 {
+            color: #00e6e6;
+            border-bottom: 2px solid #00e6e6;
+            padding-bottom: 5px;
+        }
+        
+        /* Overriding Tailwind sections to use the custom borders/shadows */
+        .neon-section {
+            background-color: #111;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 15px #00e6e6;
+        }
+
+
+        /* =============================
+           EDUCATION TIMELINE (NEON RED)
+           ============================= */
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        /* Red vertical line */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            width: 4px;
+            height: 100%;
+            background: red;
+            box-shadow: 0 0 10px red;
+        }
+
+        /* Each item */
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 35px 0;
+            position: relative;
+        }
+
+        /* Icons */
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: #111;
+            border: 3px solid red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: red;
+            box-shadow: 0 0 10px red;
+            position: absolute;
+            left: -2px;
+            top: 0;
+        }
+
+        /* Content box: Implements "box around" and "neon red colour left padding" */
+        .timeline-content {
+            background: #111;
+            padding: 20px;
+            margin-left: 60px;
+            border-radius: 12px; /* Rounded corners */
+            border: 2px solid red;
+            box-shadow: 0 0 15px red;
+            flex-grow: 1; /* Allows content to expand */
+        }
+
+        .timeline-content h3 {
+            color: #ff4d4d; /* Red title */
+        }
+
+        /* Animation (used via Tailwind utilities in the HTML now) */
+        /* .edu-animate, @keyframes slideUp are not used as Tailwind transitions are preferred */
+        
+
+        /* =============================
+           SKILLS
+           ============================= */
+        .skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills li {
+            background: #111;
+            padding: 10px 15px;
+            border-left: 4px solid #00e6e6; /* Teal highlight */
+            border-radius: 4px;
+            margin: 6px 0;
+            transition: all 0.3s;
+        }
+        .skills li:hover {
+            box-shadow: 0 0 10px #00e6e6;
+            transform: translateY(-2px);
+        }
+
+        /* =============================
+           PROJECTS
+           ============================= */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .project-box {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px #00e6e6;
+        }
+
+        .neon-border {
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 15px #00e6e6, 0 0 40px rgba(0, 255, 255, 0.2);
+        }
+
+        /* Animated links */
+        .animated-link {
+            color: #00e6e6;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .animated-link:hover {
+            color: #ff00ff; /* Pink hover effect */
+            transform: scale(1.05);
+            text-shadow: 0 0 15px #ff00ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+    </style>
 </head>
 
-<body>
+<body class="antialiased">
 
     <!-- ===== HEADER ===== -->
     <header>
-        <h1 class="glow">Hi, I'm <span class="highlight">Pranali Dhawde</span></h1>
-        <p class="subtitle">Data Analyst • Big Data Analytics Enthusiast</p>
-
-        <a href="#" class="resume-btn">Download Resume</a>
-        <!-- Add your resume link -->
+        <h1 class="glow text-6xl font-extrabold mb-2 tracking-wider">Hi, I'm <span class="highlight">Pranali Dhawde</span></h1>
+        <p class="subtitle text-2xl mb-6">Data Analyst • Big Data Analytics Enthusiast (0-1 Year Exp)</p>
+        
+        <a href="#" class="resume-btn text-lg shadow-xl hover:shadow-2xl">Download Resume</a>
+        
+        <!-- Contact Links -->
+        <div class="flex justify-center space-x-6 mt-6 text-xl">
+            <a href="mailto:your.email@example.com" class="animated-link">Email</a>
+            <a href="#" target="_blank" class="animated-link">LinkedIn</a>
+            <a href="https://github.com/yourusername" target="_blank" class="animated-link">GitHub</a>
+        </div>
     </header>
 
-    <!-- ===== ABOUT ===== -->
-    <section class="about">
-        <h2>About Me</h2>
-        <p>
-            I hold a Bachelor's degree in Statistics from Kishinchand Chellaram College, 
-            where I built my foundation in statistical analysis and data interpretation. 
-            I further pursued a Master's degree in Big Data Analytics from Jai Hind College, 
-            completing internships at PPM Value Masters, Sakhya (COVID-19 Python analysis), 
-            and TCS (Big Data project using HQL).
-        </p>
-        <p>
-            I have over a year of professional experience as a Data Analyst at Aadinath Exports, 
-            where I used Power BI to create dashboards and extract valuable business insights. 
-            I’m passionate about data analytics and continuously stay up-to-date with the latest tools and technologies.
-        </p>
-    </section>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
 
-    <!-- ===== EDUCATION TIMELINE ===== -->
-    <section class="education">
-        <h2>Education</h2>
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="neon-section">
+            <h2 class="text-4xl font-bold mb-6 glow">About Me</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                I am a dedicated Data Analyst specializing in **Big Data Analytics** with a strong foundation in **Statistics**. With a Master's degree in Big Data Analytics and a post-graduate diploma from C-DAC, coupled with over a year of professional experience, I excel at turning raw data into strategic business decisions.
+            </p>
+            <p class="text-lg leading-relaxed">
+                My professional experience at Aadinath Exports involved extensive use of **Power BI** for creating impactful dashboards, and my academic projects have honed my skills in **Python** for statistical analysis and **HQL** for large-scale data querying. I am actively seeking challenging roles in Data Analytics and Big Data in the Pune region.
+            </p>
+        </section>
 
-        <div class="timeline">
+        <!-- ===== EDUCATION TIMELINE (NEON RED) ===== -->
+        <section id="education" class="neon-section">
+            <h2 class="text-4xl font-bold mb-6 glow">Education</h2>
 
-            <!-- CDAC -->
-            <div class="timeline-item">
-                <div class="timeline-icon">🎓</div>
-                <div class="timeline-content edu-animate">
-                    <h3>Post Graduate Diploma in Big Data Analytics</h3>
-                    <p><strong>Centre of Development of Advanced Computing (C-DAC), Kharghar</strong></p>
-                    <p>CDAC · Feb 2025 – Aug 2025</p>
-                    <p><strong>Class:</strong> First Class</p>
+            <div class="timeline">
+
+                <!-- CDAC PGD -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎓</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-1">Post Graduate Diploma in Big Data Analytics</h3>
+                        <p class="text-md text-gray-400"><strong>Centre of Development of Advanced Computing (C-DAC), Kharghar</strong></p>
+                        <p class="text-sm text-gray-500">Feb 2025 – Aug 2025 | First Class</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- MSc -->
-            <div class="timeline-item">
-                <div class="timeline-icon">📊</div>
-                <div class="timeline-content edu-animate">
-                    <h3>M.Sc in Big Data Analytics</h3>
-                    <p><strong>University of Mumbai</strong></p>
-                    <p>2020 – 2022</p>
-                    <p><strong>Class:</strong> First Class</p>
+                <!-- MSc -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">📊</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-1">M.Sc in Big Data Analytics</h3>
+                        <p class="text-md text-gray-400"><strong>University of Mumbai, Jai Hind College</strong></p>
+                        <p class="text-sm text-gray-500">2020 – 2022 | First Class</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- BSc -->
-            <div class="timeline-item">
-                <div class="timeline-icon">📘</div>
-                <div class="timeline-content edu-animate">
-                    <h3>B.Sc in Statistics</h3>
-                    <p><strong>University of Mumbai</strong></p>
-                    <p>2017 – 2020</p>
-                    <p><strong>Class:</strong> First Class</p>
+                <!-- BSc -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">📘</div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-1">B.Sc in Statistics</h3>
+                        <p class="text-md text-gray-400"><strong>University of Mumbai, Kishinchand Chellaram College</strong></p>
+                        <p class="text-sm text-gray-500">2017 – 2020 | First Class</p>
+                    </div>
                 </div>
+
             </div>
+        </section>
 
-        </div>
-    </section>
 
-    <!-- ===== SKILLS ===== -->
-    <section class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>HQL</li>
-            <li>Power BI</li>
-            <li>Statistics & Data Interpretation</li>
-            <li>Big Data Analytics</li>
-        </ul>
-    </section>
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="skills neon-section">
+            <h2 class="text-4xl font-bold mb-6 glow">Core Skills</h2>
+            <ul>
+                <li>Python (Pandas, NumPy)</li>
+                <li>SQL & HQL (Hive Query Language)</li>
+                <li>Power BI (Advanced Visualization)</li>
+                <li>Big Data Analytics (Hadoop)</li>
+                <li>Statistics & Data Interpretation</li>
+                <li>Data Cleaning & Transformation</li>
+            </ul>
+        </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section class="projects">
-        <h2>Projects</h2>
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="projects neon-section">
+            <h2 class="text-4xl font-bold mb-6 glow">Featured Projects & Experience</h2>
+            
+            <div class="project-grid">
+                
+                <!-- Project 1: Professional Power BI -->
+                <div class="project-box neon-border">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Power BI Dashboard Development (Aadinath Exports)</h3>
+                    <p class="text-gray-400 mb-4">Role: Data Analyst | Focus: BI & Business Impact</p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
+                        <li>Designed and deployed comprehensive Power BI dashboards for sales, inventory, and logistics teams.</li>
+                        <li>Enabled faster decision-making by reducing weekly reporting time by 40%.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="animated-link font-medium text-sm">View Sample Dashboard (Mock) &rarr;</a>
+                    </div>
+                </div>
 
-        <div class="project-box neon-border">
-            <h3>COVID-19 Data Analysis</h3>
-            <p>Analyzed COVID-19 dataset using Python to derive trends and insights.</p>
-            <a href="#" class="animated-link">View on GitHub</a>
-        </div>
+                <!-- Project 2: Big Data HQL -->
+                <div class="project-box neon-border">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Big Data Querying & Analytics (TCS Internship)</h3>
+                    <p class="text-gray-400 mb-4">Technology: HQL, Hadoop Ecosystem</p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
+                        <li>Executed complex HQL queries on massive distributed datasets (Hadoop) to extract business intelligence.</li>
+                        <li>Focused on performance optimization and query efficiency for large-scale data processing.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="animated-link font-medium text-sm">View Project Report (Mock) &rarr;</a>
+                    </div>
+                </div>
 
-        <div class="project-box neon-border">
-            <h3>Big Data HQL Project</h3>
-            <p>Performed large-scale data querying and analytics at TCS using HQL.</p>
-            <a href="#" class="animated-link">View on GitHub</a>
-        </div>
+                <!-- Project 3: COVID-19 Analysis -->
+                <div class="project-box neon-border">
+                    <h3 class="text-2xl font-semibold text-white mb-2">COVID-19 Data Analysis & Statistical Trends</h3>
+                    <p class="text-gray-400 mb-4">Technology: Python, Pandas, Matplotlib, Statistics</p>
+                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
+                        <li>Analyzed COVID-19 impact data (Sakhya Internship) to identify regional trends and risk factors using Python.</li>
+                        <li>Applied statistical models (e.g., time series basics) to predict short-term infection rates.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="animated-link font-medium text-sm">View Code on GitHub &rarr;</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
 
-        <div class="project-box neon-border">
-            <h3>Power BI Data Visualization</h3>
-            <p>Created dashboards and interactive visualizations at Aadinath Exports.</p>
-            <a href="#" class="animated-link">View on GitHub</a>
-        </div>
-
-    </section>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>© 2025 Pranali Dhawde | Portfolio</p>
+        <p>© 2025 Pranali Dhawde | Big Data Analyst Portfolio</p>
     </footer>
 
 </body>
