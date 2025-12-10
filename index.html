@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Corrected Title Tag -->
     <title>Pranali Dhawde - Data Analyst Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,58 +35,31 @@
 
         /* General styling for dark theme and Inter font */
         body {
-            background-color: #0d0d0d;
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             padding-top: 64px; /* Space for fixed navigation bar */
-            /* Ensure content sits above the animated background */
             position: relative; 
             z-index: 1;
+            /* Apply animated gradient background to the body */
+            background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #001f3f, #1a1a1a);
+            background-size: 400% 400%; /* Make gradient large for smooth movement */
+            animation: gradient-shift 15s ease infinite;
         }
 
-        /* --- ANIMATED BACKGROUND STYLES START --- */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -10; /* Put behind all content */
-            overflow: hidden;
-            background: #0d0d0d;
-        }
-
-        .animated-shape {
-            position: absolute;
-            background-color: rgba(0, 176, 230, 0.08); /* Faint neon glow */
-            border-radius: 50%; /* Circles */
-            filter: blur(20px);
-            animation: pulse-move 10s infinite ease-in-out alternate;
-        }
-
-        @keyframes pulse-move {
-            0% { 
-                transform: scale(0.9) translate(0, 0); 
-                opacity: 0.1;
+        /* --- LINEAR GRADIENT ANIMATION STYLES START --- */
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
             }
-            50% { 
-                transform: scale(1.05) translate(10px, -10px); 
-                opacity: 0.15;
+            50% {
+                background-position: 100% 50%;
             }
-            100% { 
-                transform: scale(0.9) translate(-5px, 5px); 
-                opacity: 0.1;
+            100% {
+                background-position: 0% 50%;
             }
         }
+        /* --- LINEAR GRADIENT ANIMATION STYLES END --- */
 
-        /* Positioning the shapes */
-        .shape-1 { width: 150px; height: 150px; top: 10%; left: 5%; animation-delay: 0s; }
-        .shape-2 { width: 200px; height: 200px; top: 70%; left: 80%; animation-delay: 2s; }
-        .shape-3 { width: 100px; height: 100px; top: 40%; left: 40%; animation-delay: 4s; }
-        .shape-4 { width: 250px; height: 250px; top: -10%; right: 20%; animation-delay: 6s; }
-        .shape-5 { width: 120px; height: 120px; bottom: 5%; left: 30%; animation-delay: 1s; }
-        .shape-6 { width: 180px; height: 180px; bottom: 20%; right: 10%; animation-delay: 3s; }
-        /* --- ANIMATED BACKGROUND STYLES END --- */
 
         /* Neon separator effect for lists */
         .list-item::before {
@@ -125,17 +97,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- ANIMATED BACKGROUND LAYER -->
-    <div class="animated-bg">
-        <div class="animated-shape shape-1"></div>
-        <div class="animated-shape shape-2"></div>
-        <div class="animated-shape shape-3"></div>
-        <div class="animated-shape shape-4"></div>
-        <div class="animated-shape shape-5"></div>
-        <div class="animated-shape shape-6"></div>
-    </div>
-    <!-- END ANIMATED BACKGROUND LAYER -->
-
     <!-- 1. Fixed Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full bg-bg-dark bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,7 +110,7 @@
                     <a href="#experience" class="text-text-muted hover:text-primary-neon transition duration-200">Experience</a>
                     <a href="#projects" class="text-text-muted hover:text-primary-neon transition duration-200">Projects</a>
                     <a href="#skills" class="text-text-muted hover:text-primary-neon transition duration-200">Skills</a>
-                    <a href="#certs" class="text-text-muted hover:text-primary-neon transition duration-200">Certifications</a>
+                    <a href="#certs" class="text-text-muted hover:text-primary-neon transition duration-200">Education</a>
                     <a href="#contact" class="text-text-muted hover:text-primary-neon transition duration-200">Contact</a>
                 </div>
                 <!-- Mobile Menu Button -->
@@ -165,7 +126,7 @@
                 <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Experience</a>
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Projects</a>
                 <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Skills</a>
-                <a href="#certs" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Certifications</a>
+                <a href="#certs" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Education</a>
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
             </div>
         </div>
@@ -181,15 +142,19 @@
             </h1>
             <p class="text-2xl font-light text-text-muted mb-6">Data Analyst | Big Data & Machine Learning Enthusiast</p>
             <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <!-- Phone -->
                 <a href="tel:9082018376" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
                     <i class="fas fa-phone mr-2"></i> 9082018376
                 </a>
+                <!-- Email (Updated to display "Gmail") -->
                 <a href="mailto:pranalidhawade@gmail.com" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
-                    <i class="fas fa-envelope mr-2"></i> pranalidhawade@gmail.com
+                    <i class="fas fa-envelope mr-2"></i> Gmail
                 </a>
+                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/pranalidhawade" target="_blank" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
                     <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
+                <!-- GitHub -->
                 <a href="https://github.com/2k-system/" target="_blank" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
                     <i class="fab fa-github mr-2"></i> GitHub
                 </a>
@@ -222,10 +187,10 @@
                     <p class="text-lg text-white">Shri Aadinath Exports</p>
                     <p class="text-text-muted text-sm mb-4">Mar 2023 – Aug 2024 | Mumbai, India</p>
                     <ul class="space-y-2 text-text-muted">
-                        <li class="list-item">Extracted data from **SQL Server** and performed **ETL** using **Power BI** for multiple projects; cleaned and modelled data to support analysis and visualization.</li>
-                        <li class="list-item">Predicted optimum stock levels using data analysis to enhance inventory efficiency (**Optimum Stock Project**).</li>
-                        <li class="list-item">Conducted extensive data processing and **Exploratory Data Analysis (EDA)** to identify key customer churn drivers (**Churn Data Analysis Project**).</li>
-                        <li class="list-item">Created and maintained interactive **Power BI dashboards** for real-time, data-driven decision-making by management.</li>
+                        <li class="list-item">Extracted data from SQL Server and performed ETL using Power BI for multiple projects; cleaned and modelled data to support analysis and visualization.</li>
+                        <li class="list-item">Predicted optimum stock levels using data analysis to enhance inventory efficiency (Optimum Stock Project).</li>
+                        <li class="list-item">Conducted extensive data processing and Exploratory Data Analysis (EDA) to identify key customer churn drivers (Churn Data Analysis Project).</li>
+                        <li class="list-item">Created and maintained interactive Power BI dashboards for real-time, data-driven decision-making by management.</li>
                     </ul>
                 </div>
                 <!-- Tata Consultancy Services -->
@@ -234,9 +199,9 @@
                     <p class="text-lg text-white">Tata Consultancy Services</p>
                     <p class="text-text-muted text-sm mb-4">Feb 2022 – Jun 2022 | Mumbai, India</p>
                     <ul class="space-y-2 text-text-muted">
-                        <li class="list-item">Designed and executed a data workflow: Loaded structured dataset to **MySQL** and used **SQOOP** to transfer data to **HDFS**.</li>
-                        <li class="list-item">Filtered and processed large datasets in HDFS using **Pig** scripting for data refinement.</li>
-                        <li class="list-item">Loaded the filtered data from HDFS into **Hive** and utilized **Hive Query Language (HQL)** to query and extract actionable insights.</li>
+                        <li class="list-item">Designed and executed a data workflow: Loaded structured dataset to MySQL and used SQOOP to transfer data to HDFS.</li>
+                        <li class="list-item">Filtered and processed large datasets in HDFS using Pig scripting for data refinement.</li>
+                        <li class="list-item">Loaded the filtered data from HDFS into Hive and utilized Hive Query Language (HQL) to query and extract actionable insights.</li>
                     </ul>
                 </div>
             </div>
@@ -261,8 +226,8 @@
                         <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">Preprocessing</span>
                     </div>
                     <ul class="space-y-2 text-text-muted text-sm">
-                        <li class="list-item">Objective: Applied **K-Means algorithm** on a dataset of women's crime data to identify underlying geographical and demographic clusters.</li>
-                        <li class="list-item">Utilized **vector assembler** and **standard scaler** for essential feature engineering and scaling within the **Spylon kernel** environment.</li>
+                        <li class="list-item">Objective: Applied K-Means algorithm on a dataset of women's crime data to identify underlying geographical and demographic clusters.</li>
+                        <li class="list-item">Utilized vector assembler and standard scaler for essential feature engineering and scaling within the Spylon kernel environment.</li>
                     </ul>
                 </div>
 
@@ -279,9 +244,9 @@
                         <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">SQLAlchemy</span>
                     </div>
                     <ul class="space-y-2 text-text-muted text-sm">
-                        <li class="list-item">Built a robust data pipeline using **Python, Pandas, and MySQL** to support marketing analytics reporting.</li>
-                        <li class="list-item">Leveraged **SQLAlchemy** for efficient data exchange between databases and DataFrames for analytical processing.</li>
-                        <li class="list-item">Analyzed revenue to identify top-performing products and tracked **MoM sales growth (2022–2023)** to measure business performance.</li>
+                        <li class="list-item">Built a robust data pipeline using Python, Pandas, and MySQL to support marketing analytics reporting.</li>
+                        <li class="list-item">Leveraged SQLAlchemy for efficient data exchange between databases and DataFrames for analytical processing.</li>
+                        <li class="list-item">Analyzed revenue to identify top-performing products and tracked MoM sales growth (2022–2023) to measure business performance.</li>
                         <li class="list-item">Explored category-wise profit trends to provide insights for strategic marketing decisions.</li>
                     </ul>
                 </div>
@@ -313,26 +278,41 @@
             </div>
         </section>
 
-        <!-- 7. Certifications & Education (Merged) -->
+        <!-- 7. Education & Certifications (Updated Education) -->
         <section id="certs" class="section-anchor py-12">
             <h2 class="text-3xl font-bold mb-8 flex items-center">
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Education & Certifications
             </h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Education -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
+                <!-- Education (Updated Content) -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 space-y-4">
                     <h3 class="text-xl font-semibold text-white mb-3">Academic Background</h3>
-                    <ul class="space-y-3 text-text-muted">
-                        <li>**Post Graduate Diploma in Big Data Analytics** - CDAC Pune (Feb 2025 – Aug 2025)</li>
-                        <li>**B.sc in Statistics** - University of Mumbai (Completed Oct 2020)</li>
-                    </ul>
+                    
+                    <div class="border-l-4 border-primary-neon pl-4">
+                        <p class="font-bold text-lg text-white">Post Graduate Diploma in Big Data Analytics</p>
+                        <p class="text-text-muted">Centre of Development of Advanced Computing (C-DAC)</p>
+                        <p class="text-sm text-text-muted">2024–2025 | First Class</p>
+                    </div>
+
+                    <div class="border-l-4 border-gray-700 pl-4">
+                        <p class="font-bold text-lg text-white">M.Sc. in Big Data Analytics</p>
+                        <p class="text-text-muted">University of Mumbai</p>
+                        <p class="text-sm text-text-muted">2020–2022 | First Class</p>
+                    </div>
+
+                    <div class="border-l-4 border-gray-700 pl-4">
+                        <p class="font-bold text-lg text-white">B.Sc. in Statistics</p>
+                        <p class="text-text-muted">University of Mumbai</p>
+                        <p class="text-sm text-text-muted">2017–2020 | First Class</p>
+                    </div>
                 </div>
+                
                 <!-- Certifications -->
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
                     <h3 class="text-xl font-semibold text-white mb-3">Certifications & Training</h3>
                     <ul class="space-y-3 text-text-muted">
-                        <li>Certificate of completion of **Machine Learning with Python Foundation** (LinkedIn)</li>
-                        <li>Certificate of Participation in **Analysing & Visualising Data using Python**</li>
+                        <li class="list-item">Certificate of completion of Machine Learning with Python Foundation (LinkedIn)</li>
+                        <li class="list-item">Certificate of Participation in Analysing & Visualising Data using Python</li>
                     </ul>
                 </div>
             </div>
