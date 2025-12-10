@@ -1,530 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pranali Dhawde | Data & Big Data Analyst</title>
-    <!-- Load Tailwind CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Corrected Title Tag -->
+    <title>Pranali Dhawde - Data Analyst Portfolio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Using Inter font for consistency, but Arial is the fallback -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Configure Tailwind to use Inter font and define custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-neon': '#00b0e6',
+                        'bg-dark': '#0d0d0d',
+                        'card-dark': '#1a1a1a',
+                        'text-muted': '#a0a0a0',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(0, 176, 230, 0.4)',
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        /*
-        * Styles Overridden with User's New CSS (Neon Teal & Neon Red Timeline)
-        */
+        /* Custom scroll-behavior for smooth scrolling */
+        html { scroll-behavior: smooth; }
 
-        /* =============================
-           ANIMATED BACKGROUND (Confirmed)
-           ============================= */
-        @keyframes gradient-animation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* =============================
-           GENERAL STYLING
-           ============================= */
+        /* General styling for dark theme and Inter font */
         body {
-            font-family: 'Inter', Arial, sans-serif;
-            color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            /* Animated dark gradient background */
-            background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #0d0d0d, #222);
-            background-size: 400% 400%;
-            animation: gradient-animation 15s ease infinite;
-            /* Add padding-top to body to prevent content from hiding under fixed navbar */
-            padding-top: 80px; /* Adjust based on navbar height */
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            padding-top: 64px; /* Space for fixed navigation bar */
         }
 
-        header {
-            text-align: center;
-            padding: 50px 20px 0 20px; /* Reduced top padding as nav is now handling part of the header area */
-        }
-
-        .glow {
-            font-size: 42px;
-            text-shadow: 0 0 10px #00e6e6, 0 0 25px #00e6e6; /* Teal glow */
-        }
-
-        .highlight {
-            color: #00e6e6; /* Teal highlight (used for 'About' and main titles) */
-        }
-
-        .subtitle {
-            color: #ccc;
-            font-size: 18px;
-        }
-
-        /* Navigation link hover style */
-        .nav-link:hover {
-            color: #00ffff;
-            text-shadow: 0 0 8px #00ffff;
-        }
-        
-        /* Resume Button */
-        .resume-btn {
+        /* Neon separator effect for lists */
+        .list-item::before {
+            content: '•';
+            color: #00b0e6;
+            margin-right: 0.5rem;
+            font-weight: bold;
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            border: 2px solid #00e6e6;
-            color: #00e6e6;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
+            width: 0.8em;
+            margin-left: -0.8em;
         }
-        .resume-btn:hover {
-            background-color: #00e6e6;
-            color: #000;
-            box-shadow: 0 0 20px #00ffff;
-        }
-
-        /* =============================
-           CONTACT BOX STYLING (NEW)
-           ============================= */
-        .contact-box {
-            /* Initial state: White text (default for body), thin red border, red shadow */
-            display: inline-block;
-            padding: 8px 12px;
-            border: 1px solid #ff4d4d; /* Thin red border */
-            border-radius: 6px;
-            text-decoration: none;
-            color: #f5f5f5; /* White font for text */
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 5px rgba(255, 77, 77, 0.5); /* Subtle red glow */
-        }
-
-        .contact-box:hover {
-            /* Hover state: Blue border and blue glow */
-            border-color: #00ffff;
-            color: #00ffff;
-            box-shadow: 0 0 15px #00ffff;
-            transform: translateY(-2px);
-        }
-
-        /* Sections (Using Tailwind for primary layout centering, overriding CSS only for internal structure) */
-        section {
-            width: 80%;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px 0;
-        }
-
-        h2 {
-            color: #00e6e6;
-            border-bottom: 2px solid #00e6e6;
-            padding-bottom: 5px;
-        }
-        
-        /* Overriding Tailwind sections to use the custom borders/shadows */
-        .neon-section {
-            background-color: #111;
-            padding: 32px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            /* Default borders for Skills/Projects */
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 15px #00e6e6;
-            transition: all 0.4s ease-in-out;
-        }
-        
-        /* =============================
-           ABOUT ME OVERRIDES (Dynamic Border)
-           ============================= */
-        #about.neon-section {
-            /* Initial State: Apply only bold left red border (matching education theme) */
-            border: none;
-            box-shadow: none;
-            border-left: 6px solid #ff4d4d;
-        }
-
-        #about.neon-section:hover {
-            /* Hover State: Change color to neon blue/teal */
-            background-color: #1a1a1a;
-            /* Hover State: All borders appear (neon blue/teal) */
-            border: 2px solid #00ffff; 
-            /* Hover State: Apply neon blue/teal glow */
-            box-shadow: 0 0 25px #00ffff;
-            transform: translateY(-5px); /* Lift effect */
-        }
-
-
-        /* =============================
-           EDUCATION STYLING (MODIFIED)
-           ============================= */
-        .timeline {
-            margin: 20px 0;
-        }
-
-        .timeline::before {
-            content: none;
-        }
-
-        .timeline-item {
-            display: block; 
-            margin: 0 0 35px 0;
-            position: relative;
-        }
-
-        .timeline-icon {
-            display: none;
-        }
-
-        .timeline-content {
-            background: #111;
-            padding: 20px 20px 20px 40px;
-            margin-left: 0;
-            border-radius: 12px;
-            border: 2px solid red;
-            box-shadow: 0 0 15px red;
-            width: 100%; 
-            transition: all 0.4s ease-in-out;
-        }
-
-        .timeline-content:hover {
-            background-color: #1a1a1a;
-            border-color: #ff4d4d;
-            box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
-            transform: translateY(-5px);
-        }
-        
-        .timeline-content h3 {
-            color: #ff4d4d;
-        }
-        
-        /* =============================
-           SKILLS (MODIFIED TO CATEGORY BOXES)
-           ============================= */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        @media (min-width: 640px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .skill-category-box {
-            background: #111;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            transition: all 0.4s ease-in-out;
-            height: 100%;
-        }
-
-        .skill-category-box h3 {
-            color: #00e6e6;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 5px;
-            transition: color 0.4s ease-in-out;
-        }
-
-        .skill-category-box ul {
+        .list-item {
             list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .skill-category-box li {
-            background: #1f1f1f;
-            color: #f5f5f5;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            transition: background-color 0.2s;
-            border-left: 4px solid #00e6e6;
-            border-top: 1px solid #2a2a2a;
-            border-right: 1px solid #2a2a2a;
-            border-bottom: 1px solid #2a2a2a;
+        /* Scroll margin for fixed header */
+        .section-anchor {
+            scroll-margin-top: 6rem;
         }
 
-        .skill-category-box:hover {
-            background-color: #1a1a1a; 
-            border-color: #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-            transform: translateY(-5px);
+        /* Custom glow for skills/chips */
+        .skill-chip {
+            background-color: rgba(0, 176, 230, 0.15);
+            color: #66e0ff;
+            border: 1px solid rgba(0, 176, 230, 0.3);
+            transition: all 0.3s;
         }
-
-        .skill-category-box:hover h3 {
-            color: #00ffff;
-        }
-
-        /* =============================
-           PROJECTS
-           ============================= */
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media (min-width: 768px) {
-            .project-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .project-box {
-            background: #111;
-            padding: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .project-box:hover {
-            background-color: #1a1a1a;
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px #00e6e6;
-        }
-
-        .neon-border {
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 15px #00e6e6, 0 0 40px rgba(0, 255, 255, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #888;
+        .skill-chip:hover {
+            box-shadow: 0 0 10px rgba(0, 176, 230, 0.6);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-
 <body class="antialiased">
 
-    <!-- ===== FIXED NAVIGATION BAR (NEW) ===== -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#111111DD] backdrop-blur-sm shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            
-            <!-- Name/Logo -->
-            <a href="#about" class="text-2xl font-extrabold tracking-wider glow">
-                <span class="highlight">Pranali</span> Dhawde
-            </a>
-
-            <!-- Navigation Links -->
-            <div class="flex space-x-8 text-lg font-medium">
-                
-                <!-- About Me (Blue/Teal Font) -->
-                <a href="#about" class="nav-link highlight transition duration-300 ease-in-out">About Me</a>
-                
-                <!-- Core Skills (White Font) -->
-                <a href="#skills" class="nav-link text-white transition duration-300 ease-in-out">Core Skills</a>
-                
-                <!-- Featured Projects (White Font) -->
-                <a href="#projects" class="nav-link text-white transition duration-300 ease-in-out">Featured Projects</a>
+    <!-- 1. Fixed Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full bg-bg-dark bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="text-xl font-extrabold flex items-center text-white">
+                    <span class="w-3 h-3 bg-primary-neon rounded-full shadow-neon mr-2"></span>
+                    Pranali Dhawde
+                </a>
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#about" class="text-text-muted hover:text-primary-neon transition duration-200">About</a>
+                    <a href="#experience" class="text-text-muted hover:text-primary-neon transition duration-200">Experience</a>
+                    <a href="#projects" class="text-text-muted hover:text-primary-neon transition duration-200">Projects</a>
+                    <a href="#skills" class="text-text-muted hover:text-primary-neon transition duration-200">Skills</a>
+                    <a href="#certs" class="text-text-muted hover:text-primary-neon transition duration-200">Certifications</a>
+                    <a href="#contact" class="text-text-muted hover:text-primary-neon transition duration-200">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-button" class="md:hidden text-primary-neon focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card-dark border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Projects</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Skills</a>
+                <a href="#certs" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Certifications</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Main Content Wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- ===== HERO SECTION ===== -->
-    <header>
-        <h1 class="glow text-6xl font-extrabold mb-2 tracking-wider">Hi, I'm <span class="highlight">Pranali Dhawde</span></h1>
-        <p class="subtitle text-2xl mb-6">Data Analyst • Big Data Analytics Enthusiast (0-1 Year Exp)</p>
-        
-        <!-- RESUME DOWNLOAD BUTTON (UPDATED) -->
-        <!-- NOTE: Replace 'your_resume.pdf' with the actual link to your PDF resume for it to download. -->
-        <a href="your_resume.pdf" download="Pranali_Dhawde_Resume.pdf" class="resume-btn text-lg shadow-xl hover:shadow-2xl">
-            Download Resume (PDF)
-        </a>
-        
-        <!-- CONTACT LINKS (UPDATED with Mobile and Contact Boxes) -->
-        <div class="flex justify-center flex-wrap gap-4 mt-6 text-xl">
-            <!-- Mobile Number -->
-            <a href="tel:9082018376" class="contact-box">Mobile: 9082018376</a>
-            <!-- Email -->
-            <a href="mailto:pranalidhawade@gmail.com" class="contact-box">Email</a>
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/pranalidhawade" target="_blank" class="contact-box">LinkedIn</a>
-            <!-- GitHub -->
-            <a href="https://github.com/yourusername" target="_blank" class="contact-box">GitHub</a>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-
-        <!-- ===== ABOUT ===== -->
-        <section id="about" class="neon-section">
-            <h2 class="text-4xl font-bold mb-6 glow"><span class="highlight">About</span> Me</h2>
-            <p class="text-lg leading-relaxed mb-4">
-                I am a dedicated Data Analyst specializing in **Big Data Analytics** with a strong foundation in **Statistics**. With a Master's degree in Big Data Analytics and a post-graduate diploma from C-DAC, coupled with over an year of professional experience, I excel at turning raw data into strategic business decisions.
-            </p>
-            <p class="text-lg leading-relaxed">
-                My professional experience at Aadinath Exports involved extensive use of **Power BI** for creating impactful dashboards, and my academic projects have honed my skills in **Python** for statistical analysis and **HQL** for large-scale data querying. I am actively seeking challenging roles in Data Analytics and Big Data in the Pune region.
-            </p>
-        </section>
-
-        <!-- ===== EDUCATION BOXES (NEON RED) ===== -->
-        <section id="education" class="neon-section">
-            <h2 class="text-4xl font-bold mb-6 glow">Education</h2>
-
-            <div class="timeline">
-
-                <!-- CDAC PGD -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-semibold mb-1">Post Graduate Diploma in Big Data Analytics</h3>
-                        <p class="text-md text-gray-400"><strong>Centre of Development of Advanced Computing (C-DAC), Kharghar</strong></p>
-                        <p class="text-sm text-gray-500">Feb 2025 – Aug 2025 | First Class</p>
-                    </div>
-                </div>
-
-                <!-- MSc -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-semibold mb-1">M.Sc in Big Data Analytics</h3>
-                        <p class="text-md text-gray-400"><strong>University of Mumbai, Jai Hind College</strong></p>
-                        <p class="text-sm text-gray-500">2020 – 2022 | First Class</p>
-                    </div>
-                </div>
-
-                <!-- BSc -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-semibold mb-1">B.Sc in Statistics</h3>
-                        <p class="text-md text-gray-400"><strong>University of Mumbai, Kishinchand Chellaram College</strong></p>
-                        <p class="text-sm text-gray-500">2017 – 2020 | First Class</p>
-                    </div>
-                </div>
-
+        <!-- 2. Hero Section -->
+        <section id="hero" class="section-anchor pt-20 pb-12 flex flex-col items-center text-center">
+            <!-- Removed Profile Image/Avatar Placeholder as requested -->
+            <h1 class="text-5xl font-extrabold tracking-tight mb-2 pt-8">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-neon to-white">Pranali Dhawde</span>
+            </h1>
+            <p class="text-2xl font-light text-text-muted mb-6">Data Analyst | Big Data & Machine Learning Enthusiast</p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="tel:9082018376" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
+                    <i class="fas fa-phone mr-2"></i> 9082018376
+                </a>
+                <a href="mailto:pranalidhawade@gmail.com" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
+                    <i class="fas fa-envelope mr-2"></i> pranalidhawade@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/pranalidhawade" target="_blank" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/2k-system/" target="_blank" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
             </div>
         </section>
 
+        <!-- 3. About Me -->
+        <section id="about" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>About Me
+            </h2>
+            <div class="bg-card-dark p-6 rounded-xl border border-gray-800 shadow-xl">
+                <p class="text-text-muted leading-relaxed text-justify">
+                    A dedicated and detail-oriented Data Analytics professional with a strong foundation in Big Data, Machine Learning, and Data Science.
+                    Skilled in Python, SQL, Power BI, and cloud platforms, with hands-on experience in building pipelines, predictive models, and interactive dashboards.
+                    I am passionately focused on transforming raw data into actionable business insights, contributing to strategic decision-making and driving efficiency in fast-paced environments.
+                </p>
+            </div>
+        </section>
 
-        <!-- ===== SKILLS (UPDATED) ===== -->
-        <section id="skills" class="skills neon-section">
-            <h2 class="text-4xl font-bold mb-6 glow">Core Skills</h2>
-            
-            <div class="skills-grid">
-                
-                <!-- 1. Languages -->
-                <div class="skill-category-box">
-                    <h3 class="text-xl">Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>SQL (MySQL)</li>
-                        <li>R</li>
-                        <li>Bash/Linux</li>
+        <!-- 4. Experience -->
+        <section id="experience" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Professional Experience
+            </h2>
+            <div class="space-y-8">
+                <!-- Shri Aadinath Exports -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                    <h3 class="text-xl font-semibold text-primary-neon">Data Analyst</h3>
+                    <p class="text-lg text-white">Shri Aadinath Exports</p>
+                    <p class="text-text-muted text-sm mb-4">Mar 2023 – Aug 2024 | Mumbai, India</p>
+                    <ul class="space-y-2 text-text-muted">
+                        <li class="list-item">Extracted data from **SQL Server** and performed **ETL** using **Power BI** for multiple projects; cleaned and modelled data to support analysis and visualization.</li>
+                        <li class="list-item">Predicted optimum stock levels using data analysis to enhance inventory efficiency (**Optimum Stock Project**).</li>
+                        <li class="list-item">Conducted extensive data processing and **Exploratory Data Analysis (EDA)** to identify key customer churn drivers (**Churn Data Analysis Project**).</li>
+                        <li class="list-item">Created and maintained interactive **Power BI dashboards** for real-time, data-driven decision-making by management.</li>
                     </ul>
                 </div>
-                
-                <!-- 2. Technologies & Frameworks -->
-                <div class="skill-category-box">
-                    <h3 class="text-xl">Technologies & Frameworks</h3>
-                    <ul>
-                        <li>PySpark</li>
-                        <li>Scikit-learn</li>
-                        <li>Pandas</li>
-                        <li>NumPy</li>
-                        <li>Hadoop</li>
-                        <li>Spark</li>
-                        <li>Hive</li>
-                        <li>Streamlit</li>
-                        <li>Azure (ADF, Databricks, Azure SQL, Blob)</li>
-                        <li>AWS (Basic)</li>
-                    </ul>
-                </div>
-                
-                <!-- 3. Developer Tools -->
-                <div class="skill-category-box">
-                    <h3 class="text-xl">Developer Tools</h3>
-                    <ul>
-                        <li>VS Code</li>
-                        <li>PyCharm</li>
-                        <li>Jupyter Notebook</li>
-                        <li>Excel</li>
-                        <li>Power BI</li>
-                        <li>Tableau</li>
-                        <li>GitHub</li>
-                        <li>MySQL Workbench</li>
-                    </ul>
-                </div>
-                
-                <!-- 4. Relevant Knowledge -->
-                <div class="skill-category-box">
-                    <h3 class="text-xl">Relevant Knowledge</h3>
-                    <ul>
-                        <li>Financial Analytics</li>
-                        <li>Risk Modeling</li>
-                        <li>Machine Learning</li>
-                        <li>ETL Pipelines</li>
-                        <li>Data Visualization</li>
-                        <li>KPI Reporting</li>
+                <!-- Tata Consultancy Services -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                    <h3 class="text-xl font-semibold text-primary-neon">Analytics & Insights Intern</h3>
+                    <p class="text-lg text-white">Tata Consultancy Services</p>
+                    <p class="text-text-muted text-sm mb-4">Feb 2022 – Jun 2022 | Mumbai, India</p>
+                    <ul class="space-y-2 text-text-muted">
+                        <li class="list-item">Designed and executed a data workflow: Loaded structured dataset to **MySQL** and used **SQOOP** to transfer data to **HDFS**.</li>
+                        <li class="list-item">Filtered and processed large datasets in HDFS using **Pig** scripting for data refinement.</li>
+                        <li class="list-item">Loaded the filtered data from HDFS into **Hive** and utilized **Hive Query Language (HQL)** to query and extract actionable insights.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- ===== PROJECTS ===== -->
-        <section id="projects" class="projects neon-section">
-            <h2 class="text-4xl font-bold mb-6 glow">Featured Projects & Experience</h2>
-            
-            <div class="project-grid">
-                
-                <!-- Project 1: Professional Power BI -->
-                <div class="project-box neon-border">
-                    <h3 class="text-2xl font-semibold text-white mb-2">Power BI Dashboard Development (Aadinath Exports)</h3>
-                    <p class="text-gray-400 mb-4">Role: Data Analyst | Focus: BI & Business Impact</p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
-                        <li>Designed and deployed comprehensive Power BI dashboards for sales, inventory, and logistics teams.</li>
-                        <li>Enabled faster decision-making by reducing weekly reporting time by 40%.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="animated-link font-medium text-sm">View Sample Dashboard (Mock) &rarr;</a>
+        <!-- 5. Projects -->
+        <section id="projects" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Key Projects
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Applied K-Means Algorithm -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold text-primary-neon">Applied K-Means Algorithm on Women's Crime Data</h3>
+                        <p class="text-sm text-text-muted">Data Clustering & Machine Learning</p>
                     </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fas fa-code mr-1"></i>Spylon Kernel</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fas fa-microchip mr-1"></i>K-Means</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fas fa-chart-bar mr-1"></i>Scala</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">Preprocessing</span>
+                    </div>
+                    <ul class="space-y-2 text-text-muted text-sm">
+                        <li class="list-item">Objective: Applied **K-Means algorithm** on a dataset of women's crime data to identify underlying geographical and demographic clusters.</li>
+                        <li class="list-item">Utilized **vector assembler** and **standard scaler** for essential feature engineering and scaling within the **Spylon kernel** environment.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 2: Big Data HQL -->
-                <div class="project-box neon-border">
-                    <h3 class="text-2xl font-semibold text-white mb-2">Big Data Querying & Analytics (TCS Internship)</h3>
-                    <p class="text-gray-400 mb-4">Technology: HQL, Hadoop Ecosystem</p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
-                        <li>Executed complex HQL queries on massive distributed datasets (Hadoop) to extract business intelligence.</li>
-                        <li>Focused on performance optimization and query efficiency for large-scale data processing.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="animated-link font-medium text-sm">View Project Report (Mock) &rarr;</a>
+                <!-- Project 2: MySQL & Python Integration Project -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold text-primary-neon">MySQL & Python Integration Project</h3>
+                        <p class="text-sm text-text-muted">ETL & Marketing Analytics</p>
                     </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fab fa-python mr-1"></i>Python</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fas fa-database mr-1"></i>MySQL</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full"><i class="fas fa-table mr-1"></i>Pandas</span>
+                        <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">SQLAlchemy</span>
+                    </div>
+                    <ul class="space-y-2 text-text-muted text-sm">
+                        <li class="list-item">Built a robust data pipeline using **Python, Pandas, and MySQL** to support marketing analytics reporting.</li>
+                        <li class="list-item">Leveraged **SQLAlchemy** for efficient data exchange between databases and DataFrames for analytical processing.</li>
+                        <li class="list-item">Analyzed revenue to identify top-performing products and tracked **MoM sales growth (2022–2023)** to measure business performance.</li>
+                        <li class="list-item">Explored category-wise profit trends to provide insights for strategic marketing decisions.</li>
+                    </ul>
                 </div>
+            </div>
+        </section>
 
-                <!-- Project 3: COVID-19 Analysis -->
-                <div class="project-box neon-border">
-                    <h3 class="text-2xl font-semibold text-white mb-2">COVID-19 Data Analysis & Statistical Trends</h3>
-                    <p class="text-gray-400 mb-4">Technology: Python, Pandas, Matplotlib, Statistics</p>
-                    <ul class="list-disc list-inside text-gray-500 space-y-1 ml-4 text-sm">
-                        <li>Analyzed COVID-19 impact data (Sakhya Internship) to identify regional trends and risk factors using Python.</li>
-                        <li>Applied statistical models (e.g., time series basics) to predict short-term infection rates.</li>
-                    </ul>
-                    <div class="mt-4">
-                        <a href="#" class="animated-link font-medium text-sm">View Code on GitHub &rarr;</a>
-                    </div>
+        <!-- 6. Technical Skills -->
+        <section id="skills" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Technical Skills
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                    <h4 class="text-lg font-semibold text-primary-neon mb-2">Programming</h4>
+                    <p class="text-text-muted">Python, SQL (MySQL, HQL), Scala, R</p>
                 </div>
-                
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                    <h4 class="text-lg font-semibold text-primary-neon mb-2">Big Data & Cloud</h4>
+                    <p class="text-text-muted">Hadoop, Spark, Hive, Pig, SQOOP, Azure (ADF, Databricks), AWS</p>
+                </div>
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                    <h4 class="text-lg font-semibold text-primary-neon mb-2">ML & Libraries</h4>
+                    <p class="text-text-muted">K-Means, Scikit-learn, Pandas, NumPy, PySpark, Spylon</p>
+                </div>
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                    <h4 class="text-lg font-semibold text-primary-neon mb-2">BI & Tools</h4>
+                    <p class="text-text-muted">Power BI, Tableau, Streamlit, SQL Workbench, Git/GitHub</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Certifications & Education (Merged) -->
+        <section id="certs" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Education & Certifications
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Education -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
+                    <h3 class="text-xl font-semibold text-white mb-3">Academic Background</h3>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>**Post Graduate Diploma in Big Data Analytics** - CDAC Pune (Feb 2025 – Aug 2025)</li>
+                        <li>**B.sc in Statistics** - University of Mumbai (Completed Oct 2020)</li>
+                    </ul>
+                </div>
+                <!-- Certifications -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
+                    <h3 class="text-xl font-semibold text-white mb-3">Certifications & Training</h3>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>Certificate of completion of **Machine Learning with Python Foundation** (LinkedIn)</li>
+                        <li>Certificate of Participation in **Analysing & Visualising Data using Python**</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Contact (Mock Form) -->
+        <section id="contact" class="section-anchor py-12">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Connect With Me
+            </h2>
+            <div class="bg-card-dark p-8 rounded-xl border border-gray-800 shadow-xl max-w-lg mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-primary-neon mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-primary-neon mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-primary-neon mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="Tell me about the opportunity..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-neon text-bg-dark font-bold py-3 rounded-lg shadow-neon hover:bg-white hover:text-bg-dark transition duration-300">
+                        Send Inquiry <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
             </div>
         </section>
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <p>© 2025 Pranali Dhawde | Big Data Analyst Portfolio</p>
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-gray-800 text-text-muted text-sm mt-12">
+        <p>&copy; 2025 Pranali Dhawde. Built with <span class="text-primary-neon">❤️</span> and Tailwind CSS.</p>
     </footer>
 
+    <!-- Success Message Box (Mock Alert) -->
+    <div id="successMessage" class="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hidden transition duration-300 transform translate-y-full">
+        <i class="fas fa-check-circle mr-2"></i> Message sent successfully! I'll get back to you soon.
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Toggle mobile menu
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.replace('fa-times', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-times');
+            }
+        });
+
+        // Close mobile menu on link click
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuButton.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Mock Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, you would send data here (e.g., using fetch API)
+
+            // 1. Show message box
+            successMessage.classList.remove('hidden', 'translate-y-full');
+            successMessage.classList.add('translate-y-0');
+
+            // 2. Hide message box after 3 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('translate-y-0');
+                successMessage.classList.add('translate-y-full');
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 300); // Wait for transition to finish before hiding
+            }, 3000);
+
+            // 3. Clear form (optional)
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
