@@ -40,7 +40,7 @@
             padding-top: 64px; /* Space for fixed navigation bar */
             position: relative; 
             z-index: 1;
-            /* Apply animated gradient background to the body */
+            /* Animated gradient background for a linear animation effect */
             background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #001f3f, #1a1a1a);
             background-size: 400% 400%; /* Make gradient large for smooth movement */
             animation: gradient-shift 15s ease infinite;
@@ -111,7 +111,6 @@
                     <a href="#projects" class="text-text-muted hover:text-primary-neon transition duration-200">Projects</a>
                     <a href="#skills" class="text-text-muted hover:text-primary-neon transition duration-200">Skills</a>
                     <a href="#certs" class="text-text-muted hover:text-primary-neon transition duration-200">Education</a>
-                    <a href="#contact" class="text-text-muted hover:text-primary-neon transition duration-200">Contact</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button id="menu-button" class="md:hidden text-primary-neon focus:outline-none">
@@ -127,7 +126,6 @@
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Projects</a>
                 <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Skills</a>
                 <a href="#certs" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Education</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
             </div>
         </div>
     </nav>
@@ -140,13 +138,22 @@
             <h1 class="text-5xl font-extrabold tracking-tight mb-2 pt-8">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-neon to-white">Pranali Dhawde</span>
             </h1>
-            <p class="text-2xl font-light text-text-muted mb-6">Data Analyst | Big Data & Machine Learning Enthusiast</p>
+            <p class="text-2xl font-light text-text-muted mb-8">Data Analyst | Big Data & Machine Learning Enthusiast</p>
+            
+            <!-- Primary Action: Download Resume (Linked to the provided PDF file) -->
+            <div class="mb-8">
+                <a href="Pranali_Kashinath_Dhawde_Resume_DE.pdf" class="inline-flex items-center justify-center px-8 py-3 bg-primary-neon text-bg-dark font-extrabold text-lg rounded-xl shadow-neon hover:bg-white transition duration-300 transform hover:scale-105" download>
+                    <i class="fas fa-download mr-3"></i> Download Resume
+                </a>
+            </div>
+
+            <!-- Secondary Contact Links -->
             <div class="flex flex-wrap justify-center gap-4 text-sm">
                 <!-- Phone -->
                 <a href="tel:9082018376" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
                     <i class="fas fa-phone mr-2"></i> 9082018376
                 </a>
-                <!-- Email (Updated to display "Gmail") -->
+                <!-- Email -->
                 <a href="mailto:pranalidhawade@gmail.com" class="flex items-center px-4 py-2 bg-card-dark text-white rounded-lg hover:bg-primary-neon hover:text-bg-dark transition duration-300 border border-primary-neon">
                     <i class="fas fa-envelope mr-2"></i> Gmail
                 </a>
@@ -187,10 +194,10 @@
                     <p class="text-lg text-white">Shri Aadinath Exports</p>
                     <p class="text-text-muted text-sm mb-4">Mar 2023 – Aug 2024 | Mumbai, India</p>
                     <ul class="space-y-2 text-text-muted">
-                        <li class="list-item">Extracted data from SQL Server and performed ETL using Power BI for multiple projects; cleaned and modelled data to support analysis and visualization.</li>
-                        <li class="list-item">Predicted optimum stock levels using data analysis to enhance inventory efficiency (Optimum Stock Project).</li>
-                        <li class="list-item">Conducted extensive data processing and Exploratory Data Analysis (EDA) to identify key customer churn drivers (Churn Data Analysis Project).</li>
-                        <li class="list-item">Created and maintained interactive Power BI dashboards for real-time, data-driven decision-making by management.</li>
+                        <li class="list-item">Extracted data from **SQL Server** and performed **ETL** using **Power BI** for multiple projects; cleaned and modelled data to support analysis and visualization.</li>
+                        <li class="list-item">Predicted optimum stock levels using data analysis to enhance inventory efficiency (**Optimum Stock Project**).</li>
+                        <li class="list-item">Conducted extensive data processing and **Exploratory Data Analysis (EDA)** to identify key customer churn drivers (**Churn Data Analysis Project**).</li>
+                        <li class="list-item">Created and maintained interactive **Power BI dashboards** for real-time, data-driven decision-making by management.</li>
                     </ul>
                 </div>
                 <!-- Tata Consultancy Services -->
@@ -199,9 +206,9 @@
                     <p class="text-lg text-white">Tata Consultancy Services</p>
                     <p class="text-text-muted text-sm mb-4">Feb 2022 – Jun 2022 | Mumbai, India</p>
                     <ul class="space-y-2 text-text-muted">
-                        <li class="list-item">Designed and executed a data workflow: Loaded structured dataset to MySQL and used SQOOP to transfer data to HDFS.</li>
-                        <li class="list-item">Filtered and processed large datasets in HDFS using Pig scripting for data refinement.</li>
-                        <li class="list-item">Loaded the filtered data from HDFS into Hive and utilized Hive Query Language (HQL) to query and extract actionable insights.</li>
+                        <li class="list-item">Designed and executed a data workflow: Loaded structured dataset to **MySQL** and used **SQOOP** to transfer data to **HDFS**.</li>
+                        <li class="list-item">Filtered and processed large datasets in HDFS using **Pig** scripting for data refinement.</li>
+                        <li class="list-item">Loaded the filtered data from HDFS into **Hive** and utilized **Hive Query Language (HQL)** to query and extract actionable insights.</li>
                     </ul>
                 </div>
             </div>
@@ -226,8 +233,8 @@
                         <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">Preprocessing</span>
                     </div>
                     <ul class="space-y-2 text-text-muted text-sm">
-                        <li class="list-item">Objective: Applied K-Means algorithm on a dataset of women's crime data to identify underlying geographical and demographic clusters.</li>
-                        <li class="list-item">Utilized vector assembler and standard scaler for essential feature engineering and scaling within the Spylon kernel environment.</li>
+                        <li class="list-item">Objective: Applied **K-Means algorithm** on a dataset of women's crime data to identify underlying geographical and demographic clusters.</li>
+                        <li class="list-item">Utilized **vector assembler** and **standard scaler** for essential feature engineering and scaling within the **Spylon kernel** environment.</li>
                     </ul>
                 </div>
 
@@ -244,9 +251,9 @@
                         <span class="skill-chip text-xs font-medium px-2.5 py-1 rounded-full">SQLAlchemy</span>
                     </div>
                     <ul class="space-y-2 text-text-muted text-sm">
-                        <li class="list-item">Built a robust data pipeline using Python, Pandas, and MySQL to support marketing analytics reporting.</li>
-                        <li class="list-item">Leveraged SQLAlchemy for efficient data exchange between databases and DataFrames for analytical processing.</li>
-                        <li class="list-item">Analyzed revenue to identify top-performing products and tracked MoM sales growth (2022–2023) to measure business performance.</li>
+                        <li class="list-item">Built a robust data pipeline using **Python, Pandas, and MySQL** to support marketing analytics reporting.</li>
+                        <li class="list-item">Leveraged **SQLAlchemy** for efficient data exchange between databases and DataFrames for analytical processing.</li>
+                        <li class="list-item">Analyzed revenue to identify top-performing products and tracked **MoM sales growth (2022–2023)** to measure business performance.</li>
                         <li class="list-item">Explored category-wise profit trends to provide insights for strategic marketing decisions.</li>
                     </ul>
                 </div>
@@ -278,7 +285,7 @@
             </div>
         </section>
 
-        <!-- 7. Education & Certifications (Updated Education) -->
+        <!-- 7. Education & Certifications -->
         <section id="certs" class="section-anchor py-12">
             <h2 class="text-3xl font-bold mb-8 flex items-center">
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Education & Certifications
@@ -311,36 +318,10 @@
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
                     <h3 class="text-xl font-semibold text-white mb-3">Certifications & Training</h3>
                     <ul class="space-y-3 text-text-muted">
-                        <li class="list-item">Certificate of completion of Machine Learning with Python Foundation (LinkedIn)</li>
-                        <li class="list-item">Certificate of Participation in Analysing & Visualising Data using Python</li>
+                        <li class="list-item">Certificate of completion of **Machine Learning with Python Foundation** (LinkedIn)</li>
+                        <li class="list-item">Certificate of Participation in **Analysing & Visualising Data using Python**</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- 8. Contact (Mock Form) -->
-        <section id="contact" class="section-anchor py-12">
-            <h2 class="text-3xl font-bold mb-8 flex items-center">
-                <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Connect With Me
-            </h2>
-            <div class="bg-card-dark p-8 rounded-xl border border-gray-800 shadow-xl max-w-lg mx-auto">
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-primary-neon mb-1">Name</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-primary-neon mb-1">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-primary-neon mb-1">Message</label>
-                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:ring-primary-neon focus:border-primary-neon" placeholder="Tell me about the opportunity..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary-neon text-bg-dark font-bold py-3 rounded-lg shadow-neon hover:bg-white hover:text-bg-dark transition duration-300">
-                        Send Inquiry <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
             </div>
         </section>
 
@@ -350,11 +331,6 @@
     <footer class="text-center py-6 border-t border-gray-800 text-text-muted text-sm mt-12">
         <p>&copy; 2025 Pranali Dhawde. Built with <span class="text-primary-neon">❤️</span> and Tailwind CSS.</p>
     </footer>
-
-    <!-- Success Message Box (Mock Alert) -->
-    <div id="successMessage" class="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hidden transition duration-300 transform translate-y-full">
-        <i class="fas fa-check-circle mr-2"></i> Message sent successfully! I'll get back to you soon.
-    </div>
 
     <!-- JavaScript for Interactivity -->
     <script>
@@ -379,31 +355,6 @@
                 mobileMenu.classList.add('hidden');
                 menuButton.querySelector('i').classList.replace('fa-times', 'fa-bars');
             });
-        });
-
-        // Mock Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // In a real app, you would send data here (e.g., using fetch API)
-
-            // 1. Show message box
-            successMessage.classList.remove('hidden', 'translate-y-full');
-            successMessage.classList.add('translate-y-0');
-
-            // 2. Hide message box after 3 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('translate-y-0');
-                successMessage.classList.add('translate-y-full');
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                }, 300); // Wait for transition to finish before hiding
-            }, 3000);
-
-            // 3. Clear form (optional)
-            contactForm.reset();
         });
     </script>
 </body>
