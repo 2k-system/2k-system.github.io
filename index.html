@@ -40,25 +40,104 @@
             padding-top: 64px; /* Space for fixed navigation bar */
             position: relative; 
             z-index: 1;
-            /* Animated gradient background for a linear animation effect */
-            background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #001f3f, #1a1a1a);
-            background-size: 400% 400%; /* Make gradient large for smooth movement */
-            animation: gradient-shift 15s ease infinite;
+            /* Base dark background color */
+            background-color: #0d0d0d; 
         }
 
-        /* --- LINEAR GRADIENT ANIMATION STYLES START --- */
-        @keyframes gradient-shift {
-            0% {
-                background-position: 0% 50%;
+        /* --- COMPLEX ANIMATED BACKGROUND STYLES START --- */
+        #animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            overflow: hidden; /* Prevent streaks from causing scrollbars */
+
+            /* Six layered backgrounds (Nebula, Grids, Base colors) */
+            background:
+                /* 1. Subtle, slow-moving neon glow/nebula */
+                radial-gradient(circle at 10% 20%, rgba(0, 176, 230, 0.1) 0%, transparent 50%),
+                /* 2. Secondary dark glow spot */
+                radial-gradient(circle at 90% 80%, rgba(26, 26, 26, 0.8) 0%, transparent 60%),
+                /* 3. Deep space base blue/purple */
+                radial-gradient(circle at center, #100030 0%, #0d0d0d 100%),
+                /* 4. Repeating grid lines (Vertical) */
+                repeating-linear-gradient(to right, #0d0d0d, #0d0d0d 1px, transparent 1px, transparent 100px),
+                /* 5. Repeating grid lines (Horizontal) */
+                repeating-linear-gradient(to bottom, #0d0d0d, #0d0d0d 1px, transparent 1px, transparent 100px),
+                /* 6. Solid color base */
+                #000040;
+
+            /* Set background sizes for layers 1 and 2 to allow panning */
+            background-size: 
+                100vw 100vh, /* Nebula (1) */
+                100vw 100vh, /* Glow (2) */
+                auto,        /* Base radial (3) */
+                100% 100%,   /* Vertical Grid (4) */
+                100% 100%,   /* Horizontal Grid (5) */
+                auto;        /* Solid Base (6) */
+
+            /* Apply dual animation for panning effect */
+            animation: 
+                pan1 22s linear infinite, 
+                pan2 28s linear infinite reverse;
+        }
+
+        /* Base style for streaks (pseudo-elements) */
+        #animated-bg::before, #animated-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        /* Streak A: Fast horizontal neon streaks (like star trails) */
+        #animated-bg::before {
+            background: repeating-linear-gradient(90deg, transparent, rgba(0, 176, 230, 0.3) 1px, transparent 100px);
+            background-size: 400% 100%; /* Stretch for horizontal panning */
+            opacity: 0.1;
+            animation: streakA 12s linear infinite;
+        }
+
+        /* Streak B: Slower diagonal streaks */
+        #animated-bg::after {
+            background: repeating-linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05) 1px, transparent 80px);
+            background-size: 200% 200%; /* Stretch for diagonal panning */
+            opacity: 0.05;
+            animation: streakB 16s linear infinite reverse;
+        }
+
+        /* Keyframe for complex panning of the main background layers (1 & 2) */
+        @keyframes pan1 {
+            0% { 
+                /* Pans the first two backgrounds from top-left to bottom-right */
+                background-position: 0% 0%, 100% 100%, center, center, center, center; 
             }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
+            100% { 
+                background-position: 100% 100%, 0% 0%, center, center, center, center; 
             }
         }
-        /* --- LINEAR GRADIENT ANIMATION STYLES END --- */
+        @keyframes pan2 {
+            0% { 
+                /* Pans the first two backgrounds from bottom-right to top-left (reversed motion) */
+                background-position: 100% 100%, 0% 0%, center, center, center, center; 
+            }
+            100% { 
+                background-position: 0% 0%, 100% 100%, center, center, center, center; 
+            }
+        }
+
+        /* Keyframe for horizontal streak movement */
+        @keyframes streakA {
+            0% { background-position: 0% 0; }
+            100% { background-position: 400% 0; }
+        }
+
+        /* Keyframe for diagonal streak movement */
+        @keyframes streakB {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 200%; }
+        }
+        /* --- COMPLEX ANIMATED BACKGROUND STYLES END --- */
 
 
         /* Neon separator effect for lists */
@@ -93,9 +172,18 @@
             box-shadow: 0 0 10px rgba(0, 176, 230, 0.6);
             transform: translateY(-2px);
         }
+        
+        /* Card hover effect */
+        .card-hover-effect:hover {
+             border-color: rgba(0, 176, 230, 0.5); /* Primary neon color */
+             box-shadow: 0 0 20px rgba(0, 176, 230, 0.2); /* Soft neon glow */
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- New Animated Background Element -->
+    <div id="animated-bg"></div>
 
     <!-- 1. Fixed Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full bg-bg-dark bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
@@ -106,7 +194,6 @@
                     Pranali Dhawde
                 </a>
                 <div class="hidden md:flex space-x-6 text-sm font-medium">
-                    <!-- Navigation links already highlight on hover using 'hover:text-primary-neon' -->
                     <a href="#about" class="text-text-muted hover:text-primary-neon transition duration-200">About</a>
                     <a href="#experience" class="text-text-muted hover:text-primary-neon transition duration-200">Experience</a>
                     <a href="#projects" class="text-text-muted hover:text-primary-neon transition duration-200">Projects</a>
@@ -174,8 +261,8 @@
             <h2 class="text-3xl font-bold mb-8 flex items-center">
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>About Me
             </h2>
-            <!-- ADDED hover effect for About Me card -->
-            <div class="bg-card-dark p-6 rounded-xl border border-gray-800 shadow-xl transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+            <!-- Added card-hover-effect class for unified hover style -->
+            <div class="bg-card-dark p-6 rounded-xl border border-gray-800 shadow-xl transition duration-300 card-hover-effect">
                 <p class="text-text-muted leading-relaxed text-justify">
                     A dedicated and detail-oriented Data Analytics professional with a strong foundation in Big Data, Machine Learning, and Data Science.
                     Skilled in Python, SQL, Power BI, and cloud platforms, with hands-on experience in building pipelines, predictive models, and interactive dashboards.
@@ -190,8 +277,8 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Professional Experience
             </h2>
             <div class="space-y-8">
-                <!-- Shri Aadinath Exports (Already had hover effect) -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Shri Aadinath Exports -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 card-hover-effect">
                     <h3 class="text-xl font-semibold text-primary-neon">Data Analyst</h3>
                     <p class="text-lg text-white">Shri Aadinath Exports</p>
                     <p class="text-text-muted text-sm mb-4">Mar 2023 – Aug 2024 | Mumbai, India</p>
@@ -202,8 +289,8 @@
                         <li class="list-item">Created and maintained interactive **Power BI dashboards** for real-time, data-driven decision-making by management.</li>
                     </ul>
                 </div>
-                <!-- Tata Consultancy Services (Already had hover effect) -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Tata Consultancy Services -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 card-hover-effect">
                     <h3 class="text-xl font-semibold text-primary-neon">Analytics & Insights Intern</h3>
                     <p class="text-lg text-white">Tata Consultancy Services</p>
                     <p class="text-text-muted text-sm mb-4">Feb 2022 – Jun 2022 | Mumbai, India</p>
@@ -222,8 +309,8 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Key Projects
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1: Applied K-Means Algorithm (Already had hover effect) -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Project 1: Applied K-Means Algorithm -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 card-hover-effect">
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold text-primary-neon">Applied K-Means Algorithm on Women's Crime Data</h3>
                         <p class="text-sm text-text-muted">Data Clustering & Machine Learning</p>
@@ -240,8 +327,8 @@
                     </ul>
                 </div>
 
-                <!-- Project 2: MySQL & Python Integration Project (Already had hover effect) -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Project 2: MySQL & Python Integration Project -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 card-hover-effect">
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold text-primary-neon">MySQL & Python Integration Project</h3>
                         <p class="text-sm text-text-muted">ETL & Marketing Analytics</p>
@@ -268,20 +355,20 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Technical Skills
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- ADDED hover effect for all Technical Skill cards -->
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Applied card-hover-effect class -->
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 card-hover-effect">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">Programming</h4>
                     <p class="text-text-muted">Python, SQL (MySQL, HQL), Scala, R</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 card-hover-effect">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">Big Data & Cloud</h4>
                     <p class="text-text-muted">Hadoop, Spark, Hive, Pig, SQOOP, Azure (ADF, Databricks), AWS</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 card-hover-effect">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">ML & Libraries</h4>
                     <p class="text-text-muted">K-Means, Scikit-learn, Pandas, NumPy, PySpark, Spylon</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 card-hover-effect">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">BI & Tools</h4>
                     <p class="text-text-muted">Power BI, Tableau, Streamlit, SQL Workbench, Git/GitHub</p>
                 </div>
@@ -294,8 +381,8 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Education & Certifications
             </h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Education: ADDED hover effect -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 space-y-4 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Education: Applied card-hover-effect class -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 space-y-4 transition duration-300 card-hover-effect">
                     <h3 class="text-xl font-semibold text-white mb-3">Academic Background</h3>
                     
                     <div class="border-l-4 border-primary-neon pl-4">
@@ -317,8 +404,8 @@
                     </div>
                 </div>
                 
-                <!-- Certifications: ADDED hover effect -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
+                <!-- Certifications: Applied card-hover-effect class -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 card-hover-effect">
                     <h3 class="text-xl font-semibold text-white mb-3">Certifications & Training</h3>
                     <ul class="space-y-3 text-text-muted">
                         <li class="list-item">Certificate of completion of **Machine Learning with Python Foundation** (LinkedIn)</li>
