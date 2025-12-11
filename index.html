@@ -106,6 +106,7 @@
                     Pranali Dhawde
                 </a>
                 <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <!-- Navigation links already highlight on hover using 'hover:text-primary-neon' -->
                     <a href="#about" class="text-text-muted hover:text-primary-neon transition duration-200">About</a>
                     <a href="#experience" class="text-text-muted hover:text-primary-neon transition duration-200">Experience</a>
                     <a href="#projects" class="text-text-muted hover:text-primary-neon transition duration-200">Projects</a>
@@ -173,7 +174,8 @@
             <h2 class="text-3xl font-bold mb-8 flex items-center">
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>About Me
             </h2>
-            <div class="bg-card-dark p-6 rounded-xl border border-gray-800 shadow-xl">
+            <!-- ADDED hover effect for About Me card -->
+            <div class="bg-card-dark p-6 rounded-xl border border-gray-800 shadow-xl transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                 <p class="text-text-muted leading-relaxed text-justify">
                     A dedicated and detail-oriented Data Analytics professional with a strong foundation in Big Data, Machine Learning, and Data Science.
                     Skilled in Python, SQL, Power BI, and cloud platforms, with hands-on experience in building pipelines, predictive models, and interactive dashboards.
@@ -188,7 +190,7 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Professional Experience
             </h2>
             <div class="space-y-8">
-                <!-- Shri Aadinath Exports -->
+                <!-- Shri Aadinath Exports (Already had hover effect) -->
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h3 class="text-xl font-semibold text-primary-neon">Data Analyst</h3>
                     <p class="text-lg text-white">Shri Aadinath Exports</p>
@@ -200,7 +202,7 @@
                         <li class="list-item">Created and maintained interactive **Power BI dashboards** for real-time, data-driven decision-making by management.</li>
                     </ul>
                 </div>
-                <!-- Tata Consultancy Services -->
+                <!-- Tata Consultancy Services (Already had hover effect) -->
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h3 class="text-xl font-semibold text-primary-neon">Analytics & Insights Intern</h3>
                     <p class="text-lg text-white">Tata Consultancy Services</p>
@@ -220,7 +222,7 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Key Projects
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1: Applied K-Means Algorithm -->
+                <!-- Project 1: Applied K-Means Algorithm (Already had hover effect) -->
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold text-primary-neon">Applied K-Means Algorithm on Women's Crime Data</h3>
@@ -238,7 +240,7 @@
                     </ul>
                 </div>
 
-                <!-- Project 2: MySQL & Python Integration Project -->
+                <!-- Project 2: MySQL & Python Integration Project (Already had hover effect) -->
                 <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold text-primary-neon">MySQL & Python Integration Project</h3>
@@ -266,19 +268,20 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Technical Skills
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                <!-- ADDED hover effect for all Technical Skill cards -->
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">Programming</h4>
                     <p class="text-text-muted">Python, SQL (MySQL, HQL), Scala, R</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">Big Data & Cloud</h4>
                     <p class="text-text-muted">Hadoop, Spark, Hive, Pig, SQOOP, Azure (ADF, Databricks), AWS</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">ML & Libraries</h4>
                     <p class="text-text-muted">K-Means, Scikit-learn, Pandas, NumPy, PySpark, Spylon</p>
                 </div>
-                <div class="bg-card-dark p-4 rounded-lg border border-gray-800">
+                <div class="bg-card-dark p-4 rounded-lg border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h4 class="text-lg font-semibold text-primary-neon mb-2">BI & Tools</h4>
                     <p class="text-text-muted">Power BI, Tableau, Streamlit, SQL Workbench, Git/GitHub</p>
                 </div>
@@ -291,8 +294,8 @@
                 <span class="w-2 h-2 bg-primary-neon rounded-full shadow-neon mr-3"></span>Education & Certifications
             </h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Education (Updated Content) -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 space-y-4">
+                <!-- Education: ADDED hover effect -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 space-y-4 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h3 class="text-xl font-semibold text-white mb-3">Academic Background</h3>
                     
                     <div class="border-l-4 border-primary-neon pl-4">
@@ -314,8 +317,8 @@
                     </div>
                 </div>
                 
-                <!-- Certifications -->
-                <div class="bg-card-dark p-6 rounded-xl border border-gray-800">
+                <!-- Certifications: ADDED hover effect -->
+                <div class="bg-card-dark p-6 rounded-xl border border-gray-800 transition duration-300 hover:border-primary-neon/50 hover:shadow-neon/20">
                     <h3 class="text-xl font-semibold text-white mb-3">Certifications & Training</h3>
                     <ul class="space-y-3 text-text-muted">
                         <li class="list-item">Certificate of completion of **Machine Learning with Python Foundation** (LinkedIn)</li>
